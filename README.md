@@ -81,6 +81,20 @@
   function: 입력된 url에 있는 이미지(영수증)를 스캔하고 product, price, quantity, final price 출력
   
 
+Vision API 커맨드
+
+1. text[index].description
+  text[index]의 글자 출력함
+  [index]가 없을 경우 오류
+  보통 text in texts로 사용함
+
+2. text[index].bounding_poly.vertice[index].x / y
+  text[index] (문자열)의 x 또는 y값 (픽셀) 출력
+  vertice[index]에서 index값이 각각 0, 1, 2, 3일때 좌측 상단, 우측 상단, 우측 하단, 좌측 하단의 x/y값 출력
+  .x / .y를 안붙이면 해당 꼭지점의 x y값 모두 출력
+  vertice[index]에서 [index]가 없으면 4개 꼭지점의 x, y값 모두 출력
+  
+나머지는 모르겠음 ㅋㅋㄹㅃㅃ~
 
 
 
@@ -115,3 +129,9 @@ Troubleshooting
   A.	prodname에서 line 331에서 픽셀 개수 조정 필요, l + 10에서 10을 늘려야 함
 4)	상품 개수가 Not Found로 뜸
   A.	Vision API에서 개수를 제대로 인식 못한거임, 사진을 다시 찍는거 추천
+  
+  
+Resources
+https://codelabs.developers.google.com/codelabs/cloud-vision-api-python#7
+https://cloud.google.com/vision/docs/ocr
+https://developers.google.com/resources/api-libraries/documentation/vision/v1/python/latest/vision_v1.images.html
