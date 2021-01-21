@@ -145,8 +145,6 @@ def numscanner(texts):
     i = 0
     j = 0
 
-    print(prelims.price)
-
     for word in prelims.price:
         x = word
         for char in word:
@@ -179,19 +177,14 @@ def pricescanner(texts, indexes):
     i = 0
 
     for index in indexes:
-        m = texts[index].description
         highy = texts[index].bounding_poly.vertices[1].y  # y coordinate of upper vertice of given text
         if i < len(indexes) - 1:
             if (highy + 5) > (texts[indexes[i+1]].bounding_poly.vertices[1].y + 2) > highy:
                 indexes.pop(i)
 
         for text in texts:
-            n = text.description
-            o = text.bounding_poly.vertices[1].y
-            p = text.bounding_poly.vertices[1].x
-            q = texts[index].bounding_poly.vertices[0].x
             # if y-pixel of text is close to y-pixel of texts[index]
-            if (highy + 5) > (text.bounding_poly.vertices[1].y + 2) > highy and texts[index].description != text.description:
+            if (highy + 10) > (text.bounding_poly.vertices[1].y + 5) > highy and texts[index].description != text.description:
                 # if x-pixel of text is close to x-pixel of texts[index]
                 if text.bounding_poly.vertices[1].x + 10 > texts[index].bounding_poly.vertices[0].x:
                     templist.append(text.description)
@@ -209,7 +202,7 @@ def pricescanner(texts, indexes):
     finalresult = prelims
     return prelims
 
-#def price_authenticator(texts, indexes):
+
 
 def authenticator(texts):
     #Cuts the total amount (합계, 총 금액) from the price list
@@ -256,7 +249,7 @@ def authenticator(texts):
         for text in texts:
             n = text.description
             o = text.bounding_poly.vertices[0].y
-            if texts[finalresult.index[i-1]].bounding_poly.vertices[0].y < text.bounding_poly.vertices[0].y - 2 < k + 5:
+            if texts[finalresult.index[i-1]].bounding_poly.vertices[3].y < text.bounding_poly.vertices[0].y + 10 < k:
                 samerow.append(text.description)
 
         for element in samerow:
@@ -271,6 +264,8 @@ def authenticator(texts):
 
         i = i + 1
     i = 0
+
+
 
 
     if isnetsum:
@@ -456,7 +451,7 @@ def detect_text_uri(uri):
 
 #detect_text_uri(r"http://image.kmib.co.kr/online_image/2018/0114/611211110012048428_1.jpg")
 
-detect_text(r"D:\Google 드라이브\Uni\CCP\8.jpg")
+detect_text(r"D:\Google 드라이브\Uni\CCP\11.jpg")
 
 #5, 10 cannot be recognized
 #9 needs a little work
