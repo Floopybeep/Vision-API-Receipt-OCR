@@ -2,7 +2,7 @@
 
 사용법
 
-1. 파이선 콘솔로 pip install google-cloud를 설치한다
+1. 파이선 콘솔로 pip install google-cloud-vision를 설치한다
 2. 따로 받은 .json파일 경로를 line 3의 r""에 입력한다
 3. line 450으로 영수증의 URL을 입력하거나 line 452로 영수증 이미지 파일 경로를 입력해주고 실행한다
 
